@@ -6,4 +6,11 @@ RSpec.describe Dog do
       expect(Dog.new("Milo").name).to eq("Milo!!!")
     end
   end
+
+  describe "#age_in_dog_years" do
+    it "is 45 for some reason" do
+      expect(Dog.new("Milo").age_in_dog_years).to eq 43
+      expect(Dog.new("Milo").age_in_dog_years).to eq 43
+    end
+  end
 end
