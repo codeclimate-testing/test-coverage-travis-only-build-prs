@@ -1,8 +1,14 @@
-GEM
-  remote: https://rubygems.org/
+GIT
+  remote: git@github.com:codeclimate/ruby-test-reporter.git
+  revision: b4a7469fad5cb77f4897692b33afa3062c2a3ff1
+  branch: mj-pass-thru-travis-sha
   specs:
     codeclimate-test-reporter (1.0.3)
       simplecov
+
+GEM
+  remote: https://rubygems.org/
+  specs:
     diff-lcs (1.2.5)
     docile (1.1.5)
     json (1.8.3)
@@ -29,7 +35,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  codeclimate-test-reporter (~> 1.0.0)
+  codeclimate-test-reporter!
   rspec
   simplecov
 
