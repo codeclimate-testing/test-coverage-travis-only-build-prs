@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:codeclimate/ruby-test-reporter.git
+  remote: https://github.com/codeclimate/ruby-test-reporter.git
   revision: b4a7469fad5cb77f4897692b33afa3062c2a3ff1
   branch: mj-pass-thru-travis-sha
   specs:
