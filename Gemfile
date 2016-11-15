@@ -4,5 +4,5 @@ gem "rspec"
 
 group :test do
   gem "simplecov"
-  gem "codeclimate-test-reporter", "~> 1.0.0"
+  gem "codeclimate-test-reporter", git: "https://github.com/codeclimate/ruby-test-reporter.git", branch: "mj-pass-thru-travis-sha"
 end
