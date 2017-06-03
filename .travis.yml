@@ -7,8 +7,8 @@ script:
   - bundle exec rspec
 after_script:
   # Confirm cce instance hostname
-  - echo $TRAVIS_TEST_RESULT 
+  - echo $TRAVIS_TEST_RESULT
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT --debug
 env:
   # TODO update for repo token
-  - CODECLIMATE_REPO_TOKEN=ab37414fb95f728c38c29e3c9a95abff82ed9c39447b70a89e520b93b2d1fa83
+  - CC_TEST_REPORTER_ID=ab37414fb95f728c38c29e3c9a95abff82ed9c39447b70a89e520b93b2d1fa83
