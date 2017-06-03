@@ -4,7 +4,7 @@ before_script:
   - chmod +x ./cc-test-reporter
 script:
   # Please add to Rakefile instead of this section.
-  - bundle exec rake
+  - bundle exec rspec
 after_script:
   # Confirm cce instance hostname
   - cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
