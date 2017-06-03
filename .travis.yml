@@ -1,4 +1,13 @@
+language: ruby
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
 script:
-  - bundle exec rspec
-after_success:
-  - CODECLIMATE_REPO_TOKEN=232aa9a3d8609334d1c1efb53150c7adbe179afbe6da32e92a9896d99e0b7e06 bundle exec codeclimate-test-reporter
+  # Please add to Rakefile instead of this section.
+  - bundle exec rake
+after_script:
+  # Confirm cce instance hostname
+  - cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+env:
+  # TODO update for repo token
+  - CODECLIMATE_REPO_TOKEN=ab37414fb95f728c38c29e3c9a95abff82ed9c39447b70a89e520b93b2d1fa83
