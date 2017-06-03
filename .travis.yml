@@ -8,6 +8,7 @@ script:
 after_script:
   # Confirm cce instance hostname
   - echo $TRAVIS_TEST_RESULT
+  - echo $GIT_BRANCH
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT --debug
 env:
   # TODO update for repo token
