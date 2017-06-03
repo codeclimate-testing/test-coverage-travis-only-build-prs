@@ -11,5 +11,6 @@ after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT --debug
 env:
   # TODO update for repo token
-  - CC_TEST_REPORTER_ID=ab37414fb95f728c38c29e3c9a95abff82ed9c39447b70a89e520b93b2d1fa83
-  - GIT_BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
+  global:
+    - CC_TEST_REPORTER_ID=ab37414fb95f728c38c29e3c9a95abff82ed9c39447b70a89e520b93b2d1fa83
+    - GIT_BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
