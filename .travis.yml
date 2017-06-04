@@ -8,6 +8,8 @@ script:
 after_script:
   # Confirm cce instance hostname
   - echo $TRAVIS_COMMIT
+  - echo $TRAVIS_PULL_REQUEST_SHA
+  - echo $TRIGGER_COMMIT
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT --debug
 env:
   # TODO update for repo token
