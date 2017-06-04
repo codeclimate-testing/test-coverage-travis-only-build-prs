@@ -7,9 +7,6 @@ script:
   - bundle exec rspec
 after_script:
   # Confirm cce instance hostname
-  - echo $GIT_COMMIT_SHA
-  - echo $GIT_COMMITTED_AT
-  - echo $GIT_BRANCH
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT --debug
 env:
   # TODO update for repo token
