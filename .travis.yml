@@ -1,4 +1,18 @@
+language: ruby
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-git-env-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
 script:
+  # Please add to Rakefile instead of this section.
   - bundle exec rspec
-after_success:
-  - CODECLIMATE_REPO_TOKEN=232aa9a3d8609334d1c1efb53150c7adbe179afbe6da32e92a9896d99e0b7e06 bundle exec codeclimate-test-reporter
+  # If travis is setup to build PR only, uncomment the line below
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  # If travis is setup to build PR only, comment the line below
+  # - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
+env:
+  global:
+    # TODO update for repo token
+    - CC_TEST_REPORTER_ID=ab37414fb95f728c38c29e3c9a95abff82ed9c39447b70a89e520b93b2d1fa83
+    - GIT_COMMIT_SHA=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_COMMIT; else echo $TRAVIS_PULL_REQUEST_SHA; fi)
+    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
+    - GIT_BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
