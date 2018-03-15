@@ -12,7 +12,7 @@ script:
 env:
   global:
     # TODO update for repo token
-    - CC_TEST_REPORTER_ID=ab37414fb95f728c38c29e3c9a95abff82ed9c39447b70a89e520b93b2d1fa83
+    - CC_TEST_REPORTER_ID=f4e6e5f201f13a86e8b13768e49821b426ff0fd4eb41b6723b9e772b97404b06
     - GIT_COMMIT_SHA=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_COMMIT; else echo $TRAVIS_PULL_REQUEST_SHA; fi)
     - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
     - GIT_BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
